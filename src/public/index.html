@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrkBot Rest-Api</title>
+
+  <!--  - favicon - -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--  - custom css link - -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--  - google font link -  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--  - #MAIN - -->
+  <main>
+
+    <!-- - #SIDEBAR - -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Ian VanHeyl" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Ian VanHeyl">Ian VanHeyl</h1>
+          <p class="title">Web Designer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:publishort1522@gmail.com" class="contact-link">publishort1522@gmail.com</a></a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+573508770421" class="contact-link">+57 (350) 877-0421</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="1994-01-02">Jan 2, 1994</time>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Barranquilla, Atlántico, Colombia</address>
+            </div>
+          </li>
+        </ul>
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- - #main-content - -->
+    <div class="main-content">
+
+      <!--  - #NAVBAR -  -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Apis</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+        </ul>
+      </nav>
+
+      <!--  - #ABOUT -  -->
+      <article class="about  active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+        <section class="about-text">
+          <p>
+            My name is Ian VanHeyl, and I currently reside in the city of Barranquilla, Colombia.  I am 28 years old and I am passionate about technology.  I like to keep up with the latest trends and developments in the world of computing, and I'm currently learning JavaScript and NODEJS to improve my programming skills.
+          </p>
+          <p>
+            When I'm not working on my career, one of my biggest hobbies is watching movies.  I like all kinds of genres, from dramas to comedies to sci-fi movies.  I also enjoy exploring new culinary options, and Mexican food is definitely one of my favorites.
+          </p>
+          <p>
+            Regarding my personality, I consider myself a cheerful and helpful person.  I like to help others where possible and I always try to keep a positive attitude, even in challenging situations.  Overall, I'm very grateful for the life I've had so far, and I'm excited for what the future holds.
+          </p>
+        </section>
+
+        <!--  - service -  -->
+        <section class="service">
+          <h3 class="h3 service-title">currently I am</h3>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web design</h4>
+                <p class="service-item-text">
+                  Designing medium level web pages.
+                </p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mobile apps</h4>
+                <p class="service-item-text">
+                  Introduction to android app development.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!--  - testimonials -  -->
+        <section class="testimonials">
+          <h3 class="h3 testimonials-title">Collaborators</h3></h3>
+          <ul class="testimonials-list has-scrollbar">
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Skueletor" width="60" data-testimonials-avatar>
+                </figure>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Skueletor</h4>
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est at veritatis provident aliquid iure voluptas, amet facilis ducimus quibusdam voluptates.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Mario" width="60" data-testimonials-avatar>
+                </figure>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Mario Almiron</h4>
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae molestiae placeat eius molestias ullam rerum sapiente expedita, esse unde repellat.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- - testimonials modal -  -->
+        <div class="modal-container" data-modal-container>
+          <div class="overlay" data-overlay></div>
+          <section class="testimonials-modal">
+            <button class="modal-close-btn" data-modal-close-btn>
+            </button>
+          </section>
+        </div>
+
+        <!-- - clients -  -->
+        <section class="skill">
+          <h3 class="h3 skills-title">My skills</h3>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Web design</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">NODEJS</h5>
+                <data value="50">50%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">JavaScript</h5>
+                <data value="50">50%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">PhotoShop</h5>
+                <data value="60">60%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 60%;"></div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!--  - #Rest Api -  -->
+      <article class="api" data-page="apis">
+        <header>
+          <h2 class="h2 article-title">Apis</h2>
+        </header>
+        <section class="projects">
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Downloader</button>
+            </li>
+           <!-- <li class="filter-item">
+              <button data-filter-btn>Searching</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Tools</button>
+            </li> -->
+          </ul>
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+              <li class="select-item">
+                <button data-select-item>Downloader</button>
+              </li>
+             <!-- <li class="select-item">
+                <button data-select-item>Searching</button>
+              </li>
+              <li class="select-item">
+                <button data-select-item>Tools</button>
+              </li> -->
+            </ul>
+          </div>
+          <ul class="project-list">
+          <li class="project-item  active" data-filter-item data-category="downloader">
+            <span>DOWNLOADER</span>
+          </li>
+            <li class="project-item  active" data-filter-item data-category="downloader">
+              <a href="/api/ytplay?apikey=DarBox&query=enemy%20imagine%20dragons"><p class="project-title">ytplay</p></a>
+            </li>
+      <!--
+          <li class="project-item  active" data-filter-item data-category="searching">
+            <span>SEARCHING</span>
+          </li>
+            <li class="project-item  active" data-filter-item data-category="searching">
+              <a href="/api/tiktok?url=&apikey=DrkBot"><p class="project-title">infonpm</p></a>
+            </li>
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                </figure>
+                <h3 class="project-title">Orizon</h3>
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+      -->
+          </ul>
+        </section>
+      </article>
+
+      <!--  - #CONTACT -  -->
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe width="400" height="300" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=400&amp;height=300&amp;hl=en&amp;q=Eduardo%20Santos%20Barranquilla%20atlantico+(dark-website)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+          </figure>
+        </section>
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+          <form action="https://formsubmit.co/bdaaf03dea2104c473355676ebeb346d" method="POST" class="form" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="phone" class="form-input" placeholder="Phone number" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+            
+            <input type="hidden" name="_next" value="http://localhost:8080/succes.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+          </form>
+        </section>
+      </article>
+
+    </div>
+
+  </main>
+
+  <!--  - custom js link -  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--  - ionicon link -  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

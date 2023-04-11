@@ -1,0 +1,32 @@
+{
+  "name": "ian-rest",
+  "version": "1.0.0",
+  "description": "portfolio and rest-api",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "supervisor -s src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianvanh/ian.git"
+  },
+  "keywords": [
+    "portfolio",
+    "rest-api",
+    "express",
+    "nodejs"
+  ],
+  "author": "ianvanh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianvanh/ian/issues"
+  },
+  "homepage": "https://github.com/ianvanh/ian#readme",
+  "dependencies": {
+    "dbot-api": "^1.2.1",
+    "express": "^4.18.2",
+    "express-favicon": "^2.0.4",
+    "morgan": "^1.10.0",
+    "supervisor": "^0.12.0"
+  }
+}
