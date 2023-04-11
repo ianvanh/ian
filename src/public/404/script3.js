@@ -344,7 +344,7 @@ const checkAnswer = e => {
 
 const exitGame = () => {
   setTimeout(() => {
-    window.location = ('http://localhost:8080')
+    window.location = ('https://ian.onrender.com')
   }, 2000)
 }
 
