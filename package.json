@@ -4,7 +4,7 @@
   "description": "portfolio and rest-api",
   "main": "src/index.js",
   "scripts": {
-    "start": "supervisor -s src/index.js"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
