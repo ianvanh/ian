@@ -2,7 +2,7 @@ const axios = require('axios');
 const app = require('./app');
 
 setInterval(() => {
-  axios.get(`${Config.DOMINIO}/ping`).then(response => {
+  axios.get(`https://drk-bot.com.es/ping`).then(response => {
     if (response.ok) {
       console.log('Ping enviado para mantener la actividad.');
     } else {
