@@ -56,8 +56,8 @@ const story = [
 },
 {
 "id": 12,
-"text": ["Encuentras un diario en la cabaña. La última entrada dice: 'La criatura me sigue a todas partes. No puedo escapar de ella...'", "1: Continúas explorando la cabaña.", "2: Sales corriendo de la cabaña lo más rápido posible."],
-"path": [12, 13]
+"text": ["Encuentras un diario en la cabaña. La última entrada dice: 'La criatura me sigue a todas partes. No puedo escapar de ella...'", "1: Sales a explorar los alrededores.", "2: Sales corriendo de la cabaña lo más rápido posible."],
+"path": [14, 13]
 },
 {
 "id": 13,
@@ -222,139 +222,114 @@ const story = [
 ],
     $textSection = document.querySelector('.text')
 
-
-let prevId = [0, 0],//store the 2 previous answers
+let prevId = [0, 0],
     newId = 1,
-    textId = 0, // add a specific id for each paragraph
+    textId = 0,
     currentParagraph,
-    formerTextLength = 0,//for the typewritter effect, store the qty of characters
-    answerInput
+    formerTextLength = 0,
+    answerInput;
 
 const findText = id => {
+    const $section = document.createElement('div');
+    $section.id = 'text' + textId;
 
-    const $section = document.createElement('div')
-    $section.id = 'text' + textId // the id of the div for the labelledby id ARIA (will read the whole div)
+    if (prevId[1] === id && prevId[1] !== 190) {
+        writeText('Juego Terminado'.split(''), exitGame(), false);
+    }
 
-    if (prevId[1] === id && prevId[1] !== 190) { writeText('Juego Terminado'.split(''), exitGame(), false) }
-
-    // store the two last id
-    prevId[0] = prevId[1]
-    prevId[1] = id
+    prevId[0] = prevId[1];
+    prevId[1] = id;
 
     currentParagraph = story.find(storyPart => {
-        return storyPart['id'] === id
-    })
+        return storyPart['id'] === id;
+    });
 
-    // get each sentences of the paragraph
-    const paragraphText = [...currentParagraph.text]
+    const paragraphText = [...currentParagraph.text];
 
     paragraphText.forEach((text, idx) => {
-        //get each letter of the sentence
-        const textArray = text.split('')
-        
-        const textLength = textArray.length
+        const textArray = text.split('');
+        const textLength = textArray.length;
 
         setTimeout(() => {
-            writeText(textArray, $section, idx === paragraphText.length - 1 ? true : false)
-        }, (formerTextLength + 1) * 10)
+            writeText(textArray, $section, idx === paragraphText.length - 1 ? true : false);
+        }, (formerTextLength + 1) * 10);
 
-        formerTextLength += textLength
-    })
-}
+        formerTextLength += textLength;
+    });
+};
 
-//add the text in the paragraph, if answerInput === true trigger the appendInput function
 const writeText = (text, $section, answerInput) => {
-    const $container = document.createElement('p')
-    $container.classList.add('paragraph')
+    const $container = document.createElement('p');
+    $container.classList.add('paragraph');
+    $container.textContent = text.join('');
+    $section.appendChild($container);
 
-    //typewritter effect
-    text.forEach((char, idx) => {
-        setTimeout(() => {
-            $container.innerHTML += char
-            if (answerInput && prevId[1] !== 18 && idx === text.length - 1) {
-                appendInput($container)
-                formerTextLength = 0
-            }
-        }, idx * 10)
-    })
+    if (answerInput) {
+        appendInput($container);
+        formerTextLength = 0;
+    }
+};
 
-    $section.appendChild($container)
+const answerMap = {
+    '0': 20,
+    '1': () => currentParagraph.path[0],
+    '2': () => currentParagraph.path[1]
+};
 
-    $textSection.appendChild($section)
-}
+const checkAnswer = e => {
+    const formerInput = document.querySelector('.active');
+    formerInput.classList.remove('active');
 
-// add the input at the end of the paragraph
+    const inputValue = e.target.value;
+    newId = answerMap[inputValue] ? (typeof answerMap[inputValue] === 'function' ? answerMap[inputValue]() : answerMap[inputValue]) : null;
+
+    if (newId === 22) {
+        newId = prevId[0];
+    }
+
+    if (newId === 0) {
+        exitGame();
+    } else {
+        findText(newId);
+    }
+
+    answerInput.removeEventListener('input', checkAnswer);
+    answerInput.disabled = true;
+};
+
 const appendInput = container => {
-
     container.innerHTML += `
         <div class="answer-container active">
             <input type="text" class="answer" aria-labelledby="text${textId}"/>
-        </div>`
+        </div>`;
 
-    const answer = document.querySelectorAll('.answer')
-    answerInput = answer[answer.length - 1]
-    answerInput.focus()
+    const answer = document.querySelectorAll('.answer');
+    answerInput = answer[answer.length - 1];
+    answerInput.focus();
 
-    // Move the paragraph up if it is too low on the page.
     if (window.innerHeight - answerInput.getBoundingClientRect().bottom < (window.innerHeight * .4)) {
-        document.querySelector('body').style.height = document.querySelector('body').getBoundingClientRect().height + (window.innerHeight * .3) + 'px'
+        document.querySelector('body').style.height = document.querySelector('body').getBoundingClientRect().height + (window.innerHeight * .3) + 'px';
         window.scrollTo({
             top: document.querySelector('body').getBoundingClientRect().height,
             behavior: 'smooth'
         });
     }
 
-   answerInput.addEventListener('input', checkAnswer)
-
-    textId++
-}
-
-const checkAnswer = e => {
-    const formerInput = document.querySelector('.active')
-    formerInput.classList.remove('active')
-    switch (e.target.value) {
-
-        case '0':
-            prevId[1] === 20 && exitGame()
-            newId = 20
-            break
-
-        case '1':
-            newId = currentParagraph.path[0]
-            break
-
-        case '2':
-            newId = currentParagraph.path[1]
-            break
-
-        default: console.log('error')
-            break
-    }1
-    answerInput.removeEventListener('input', checkAnswer)
-    answerInput.disabled = true
-
-    // trying to escape but still stay
-    newId === 22 && (newId = prevId[0])
-
-    // end and escape the game
-    newId === 0 && exitGame()
-
-    newId === 0 ? exitGame() : findText(newId)
-}
+    answerInput.addEventListener('input', checkAnswer);
+    textId++;
+};
 
 const exitGame = () => {
-  setTimeout(() => {
-    window.location = ('https://ian.onrender.com')
-  }, 2000)
-}
+    setTimeout(() => {
+        window.location = ('/');
+    }, 2000);
+};
 
-findText(newId)
+findText(newId);
 
-//Exit the game with the escape key
-window.addEventListener("keydown", e => e.key==="Escape" && exitGame())
+window.addEventListener("keydown", e => e.key === "Escape" && exitGame());
 
-//Refocus when the user is back on the page
 document.addEventListener('visibilitychange', () => {
-const state = document.visibilityState
-state && answerInput.focus()
-})
+    const state = document.visibilityState;
+    state && answerInput.focus();
+});

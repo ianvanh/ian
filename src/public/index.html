@@ -287,13 +287,13 @@
               <input type="text" name="phone" class="form-input" placeholder="Phone number" required data-form-input>
               <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea id="content" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
             
-            <input type="hidden" name="_next" value="https://ian.onrender.com/succes.html">
+            <input type="hidden" name="_next" value="https://ian.onrender.com/success.html">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
           </form>
@@ -305,6 +305,20 @@
   </main>
 
   <!--  - custom js link -  -->
+  <script>
+    function ping() {
+      setInterval(function() {
+        fetch('/ping').then(response => {
+          if (response.ok) {
+            console.log('success .');
+          } else {
+            console.error('Error al mantener la actividad.');
+          }
+        });
+      }, 4 * 60 * 1000);
+    }
+    ping();
+  </script>
   <script src="./assets/js/script.js"></script>
 
   <!--  - ionicon link -  -->

@@ -7,6 +7,9 @@ const router = Router();
 router.get('/', (req, res) => {
     res.sendFile(__path + '/public/index.html')
 });
+/*router.get('/test', (req, res) => {
+    res.sendFile(__path + '/src/public/test.html')
+});*/
 
 router.get('/config', (req, res) => {
     config = {
@@ -21,10 +24,8 @@ router.get('/config', (req, res) => {
     }
     res.json(config)
 });
-
-/*router.post('/contact', (req, res) => {
-  res.redirect('https://formsubmit.co/bdaaf03dea2104c473355676ebeb346d');
-  //res.redirect(`https://wa.me/573046793853?text=*Name:* ${fullname}\n*Phone:* ${phone}\n*Email:* ${email}\n*Message:* ${message}`)
-});*/
+router.get('/ping', (req, res) => {
+  res.send('Pong');
+});
 
 module.exports = router
